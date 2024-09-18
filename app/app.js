@@ -2,29 +2,26 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import TaskRoutes from "./routes.js";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
+import path from "path";
 
 import cors from "cors";
 
 dotenv.config();
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const buildpath = join(__dirname, "../client/dist");
-
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname, "../client/dist");
 app.use(express.static(buildpath));
 app.use(cors());
 
-// app.use(express.json());
+app.use(express.json());
 // app.get("/", (req, res) => {
 //   res.redirect("/create");
 // });
 
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("Mongo connected");
-  console.log("root as done");
+  console.log("root as");
 });
 
 app.use("/create", TaskRoutes);
