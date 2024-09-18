@@ -15,9 +15,9 @@ app.use(express.static(buildpath));
 app.use(cors());
 
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.redirect("/create");
-});
+// app.get("/", (req, res) => {
+//   res.redirect("/create");
+// });
 
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("Mongo connected");
