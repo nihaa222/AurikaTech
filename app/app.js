@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("Mongo connected");
+  console.log("root");
 });
 
 app.use("/create", TaskRoutes);
