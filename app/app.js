@@ -24,7 +24,7 @@ app.use(cors());
 
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("Mongo connected");
-  console.log("root as");
+  console.log("root as done");
 });
 
 app.use("/create", TaskRoutes);
