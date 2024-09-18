@@ -17,7 +17,7 @@ const buildpath = join(__dirname, "../client/dist");
 app.use(express.static(buildpath));
 app.use(cors());
 
-app.use(express.json());
+// app.use(express.json());
 // app.get("/", (req, res) => {
 //   res.redirect("/create");
 // });
