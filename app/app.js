@@ -2,15 +2,18 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import TaskRoutes from "./routes.js";
-import path from "path";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 import cors from "cors";
 
 dotenv.config();
 
 const app = express();
-const _dirname = path.dirname("");
-const buildpath = path.join(_dirname, "../client/dist");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const buildpath = join(__dirname, "../client/dist");
+
 app.use(express.static(buildpath));
 app.use(cors());
 
