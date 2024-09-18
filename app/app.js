@@ -15,6 +15,9 @@ app.use(express.static(buildpath));
 app.use(cors());
 
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Welcome to the API!");
+});
 
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("Mongo connected");
